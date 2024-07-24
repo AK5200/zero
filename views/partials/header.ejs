@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body class="font-['helvetica_now_display']">
+    <nav class="w-full flex justify-between md:justify-around px-3 py-3 z-20 font-semibold">
+        <a href="/shop"><h3 class='text-2xl '>Zero.</h3></a>
+
+        <% var loggedin = typeof loggedin !== "undefined" ? loggedin: true %>
+
+        <% if(loggedin){ %>
+            <div class="flex gap-5 text-xl">
+                <a class="hover:underline" href="/shop">Shop</a>
+                <a class="hover:underline" href="/cart">Cart</a>
+                <a class="hover:underline" href="">My Account</a>
+                <a class="text-red-600 hover:underline  hover:underline-offset-8" style="text-decoration: underline; text-underline-offset: 1rem;"  href="/users/logout">Logout</a>
+            </div>
+        </nav>
+        
+        <%}%>
+       
+
+    
+</body>
+</html>

@@ -1,9 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const jwt = require('jsonwebtoken');
-const bcrypt = require('bcrypt');
-const userModel = require('../models/user-model')
-
+const { registerUser, loginUser, logoutUser } = require("../controllers/authController");
 
 
 router.get('/', (req,res)=>{
@@ -11,45 +8,12 @@ router.get('/', (req,res)=>{
 });
 
 
-// REGISTER
-router.post('/register', async (req, res)=>{
+// REGISTER 
+router.post('/register', registerUser );
 
+router.post('/login', loginUser);
 
-    try{
-
-    let {fullname, email, password} = req.body;
-
-    let user = await userModel.findOne({email});
-
-    if(user){
-        return res.send(`User already registered. Please login!`);
-    }
-
-    bcrypt.hash(password,10, async (err,hash)=>{
-
-        if(err) return res.send(err.message);
-
-        else
-        {
-            const createdUser = await userModel.create({
-                fullname,
-                email,
-                password:hash
-            });
-
-           let token =  jwt.sign({email, id:createdUser._id}, "secret key");
-           res.send(token);
-        }
-    });
-
-   }
-   catch(err)
-   {
-   res.send(err.message);
-   }
-
-
-});
+router.get('/logout', logoutUser);
 
 module.exports = router;
 

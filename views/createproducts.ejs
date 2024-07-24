@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Product</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-white">
+
+   
+
+    <div class="flex flex-col min-h-screen">
+        <header class="bg-white shadow-md py-4 px-6 flex items-center justify-between">
+            <div class="text-xl font-bold">Zero</div>
+        </header>
+
+        <div class="flex flex-grow">
+            <!-- Sidebar -->
+            <aside class="bg-white w-1/4 p-4 shadow-lg">
+                <div class="mb-4">
+                    <a href="#" class="block text-bold mb-2 hover:text-zinc-900">All Products</a>
+                    <a href="#" class="block text-bold mb-2 hover:text-zinc-900">Add New Product</a>
+                </div>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="flex-1 p-8 bg-white shadow-md ml-4">
+                <h2 class="text-3xl font-semibold mb-8">Create.</h2>
+                <form autocomplete="off" action="/products/create" method="post" enctype="multipart/form-data">
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold mb-4">Product Details</h3>
+                        <div class="mb-4">
+                            <label class="block mb-2 font-medium">Product Image</label>
+                            <input name="image" type="file" class="py-2 px-4 rounded border w-full">
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <input name="name" type="text" placeholder="Product Name" class="border p-2 rounded w-full">
+                            <input name="price" type="text" placeholder="Product Price" class="border p-2 rounded w-full">
+                            <input name="discount" type="text" placeholder="Discount Price" class="border p-2 rounded w-full">
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4">Panel Details</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <input type="text" placeholder="Background Color" name="bgcolor" class="border p-2 rounded w-full">
+                            <input type="text" placeholder="Panel Color" name="panelcolor" class="border p-2 rounded w-full">
+                            <input type="text" placeholder="Text Color" name="textcolor" class="border p-2 rounded w-full">
+                        </div>
+                    </div>
+                    <input type="submit" class="px-5 hover:bg-blue-600 py-2 rounded mt-3 bg-blue-500 text-white" value="Create New Product">
+                </form>
+            </main>
+        </div>
+    </div>
+
+</body>
+</html>
