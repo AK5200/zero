@@ -60,40 +60,12 @@
         <%- include('partials/header') %>
     </div>
     <div class="flex">
-        <!-- Burger Menu Icon -->
-        <div class="absolute top-4 left-4 z-10 cursor-pointer block md:hidden menu-toggle">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-gray-600" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd" d="M3 5a1 1 0 0 1 1-1h12a1 1 0 0 1 0 2H4a1 1 0 1-1zm0 5a1 1 0 1 1 1-1h12a1 1 0 1-1 0 2H4a1 1 0 1-1zm0 5a1 1 0 1-1 1-1h12a1 1 0 1-1 0 2H4a1 1 0 1-1zm0 5a1 1 0 1-1 1-1h12a1 1 0 1-1 0 2H4a1 1 0 1-1z"/>
-            </svg>
-        </div>
+       
 
         <!-- Overlay -->
         <div id="overlay"></div>
-
-        <!-- Left Menu -->
-        <div class="w-1/2 bg-white p-4 md:w-auto md:block fixed left-0 top-0 h-full transform md:transform-none transition-transform duration-300 ease-in-out menu-closed" id="sidebar">
-            <div class="mb-8">
-                <h2 class="text-lg font-semibold pt-20 mb-4 cursor-pointer font-bold" onclick="closeSidebar()">sort by.</h2>
-                <ul>
-                    <li class="cursor-pointer hover:text-blue-600 mb-2 font-semibold text-xl" onclick="closeSidebar()"><a href="">Popular</a></li>
-                    <li class="cursor-pointer hover:text-blue-600 mb-2 font-semibold text-xl" onclick="closeSidebar()"><a href="">Recent</a></li>
-                </ul>
-            </div>
-            <div class="mb-8 pt-10">
-                <ul>
-                    <li class="cursor-pointer hover:text-blue-600 mb-2 font-semibold text-xl" onclick="closeSidebar()"><a href="/newCollection">New Collection</a></li>
-                    <li class="cursor-pointer hover:text-blue-600 mb-2 font-semibold text-xl" onclick="closeSidebar()"><a href="/shop">All Products</a></li>
-                    <li class="cursor-pointer hover:text-blue-600 mb-2 font-semibold text-xl" onclick="closeSidebar()"><a href="/discount">Discounts</a></li>
-                </ul>
-            </div>
-            <div>
-                <h2 class="text-lg font-semibold pt-20 mb-4 cursor-pointer font-bold" onclick="closeSidebar()">filter by.</h2>
-                <ul>
-                    <li class="cursor-pointer hover:text-blue-600 mb-2 text-xl font-semibold" onclick="closeSidebar()"><a href="/shop">Availability</a></li>
-                    <li class="cursor-pointer hover:text-blue-600 mb-2 text-xl font-semibold" onclick="closeSidebar()"><a href="/discount">Discount</a></li>
-                </ul>
-            </div>
-        </div>
+ 
+    
 
         <!-- Product Catalogue -->
         <div class="flex-1 p-4 ml-0 md:ml-64 lg:pr-32">
@@ -132,30 +104,7 @@
         </div>
     </div>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const menuToggle = document.querySelector('.menu-toggle');
-            const sidebar = document.getElementById('sidebar');
-            const overlay = document.getElementById('overlay');
-
-            menuToggle.addEventListener('click', function () {
-                sidebar.classList.toggle('menu-open');
-                sidebar.classList.toggle('menu-closed');
-                overlay.classList.toggle('show');
-            });
-
-            overlay.addEventListener('click', function () {
-                closeSidebar();
-            });
-
-            // Function to close sidebar on item click
-            window.closeSidebar = function () {
-                sidebar.classList.remove('menu-open');
-                sidebar.classList.add('menu-closed');
-                overlay.classList.remove('show');
-            }
-        });
-    </script>
+ 
 
 </body>
 </html>

@@ -110,6 +110,23 @@ router.get('/newCollection', isLoggedIn, async (req,res)=>{
 })
 
 
+
+// user account
+router.get("/account",isLoggedIn, async (req, res)=>{
+  try{
+    let user = await userModel.findOne({email:req.user.email});
+    let time = user._id.getTimestamp();
+    let month = time.getMonth() + 1;
+    let year = time.getFullYear();
+
+    res.render('account', {user , month,  year} );
+  } catch(err)
+  {
+    console.error(err);
+  }
+})
+
+
 router.get("/logout", isloggedin, async (req,res)=>{
     res.cookie("token", "");
     res.redirect("/");
